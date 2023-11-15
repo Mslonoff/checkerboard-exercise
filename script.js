@@ -5,43 +5,34 @@ container.style.flexWrap = 'wrap';
 container.style.height = '800px';
 container.style.width = '800px';
 
-
-function createRedSquare() {
+function createRandomColorSquare() {
 let square = document.createElement('div');
 square.style.display = 'flex';
 square.style.flexWrap = 'wrap';
 square.style.height = '12.5%';
 square.style.width = '12.5%';
-square.style.background = 'red';
+square.style.backgroundColor = createRandomColor();
 container.appendChild(square);
 document.body.appendChild(container);
 }
 
-function createBlackSquare() {
-let square = document.createElement('div');
-square.style.display = 'flex';
-square.style.flexWrap = 'wrap';
-square.style.height = '12.5%';
-square.style.width = '12.5%';
-square.style.background = 'black';
-container.appendChild(square);
-document.body.appendChild(container);
+function createRandomColor() {
+    let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    return randomColor;
 }
+
 for (let i = 0; i < 64; i++) {
-if ((Math.floor(i / 8) + i) % 2 === 0) {
-    createRedSquare();
-} else {
-    createBlackSquare();
-}
+createRandomColorSquare();
 }
 
+// function createBlackSquare() {
+// let square = document.createElement('div');
+// square.style.display = 'flex';
+// square.style.flexWrap = 'wrap';
+// square.style.height = '12.5%';
+// square.style.width = '12.5%';
+// square.style.background = 'black';
+// container.appendChild(square);
+// document.body.appendChild(container);
+// }
 
-
-// Create a container for your tiles with the following styles:
-// display = "flex"
-// flexWrap = "wrap"
-// width = "800px"
-// height = "800px"
-// Each tile should have the following styles:
-// width = "12.5%"
-// height = "12.5%"
